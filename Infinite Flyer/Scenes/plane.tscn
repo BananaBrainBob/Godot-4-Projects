@@ -10,6 +10,7 @@ height = 4.0
 size = Vector3(7, 0.2, 2)
 
 [node name="Plane" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_vxrf0")
 
 [node name="cartoon_plane" parent="." instance=ExtResource("1_q3o0k")]
