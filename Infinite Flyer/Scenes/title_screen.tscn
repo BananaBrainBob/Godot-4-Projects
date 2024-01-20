@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbp1bfsm8wlyv"]
+
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_5pf78"]
+[ext_resource type="Texture2D" uid="uid://dvqmky8i0hoaa" path="res://Assets/styled_sky.hdr" id="1_785tf"]
+[ext_resource type="FontFile" uid="uid://dyveanw1durrh" path="res://Assets/Baloo2-Medium.ttf" id="2_n27rq"]
+[ext_resource type="Texture2D" uid="uid://bdn3bc1bs4grr" path="res://Assets/buttons/play_button.png" id="2_u0p37"]
+[ext_resource type="Texture2D" uid="uid://bjiftn7wi3v4q" path="res://Assets/buttons/play_button_pr.png" id="3_x05d4"]
+[ext_resource type="Texture2D" uid="uid://cgrso85u6hdl4" path="res://Assets/buttons/play_button_h.png" id="4_q8vwi"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5pf78")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_785tf")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_n27rq")
+theme_override_font_sizes/font_size = 128
+text = "Infinite Flyer"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -200.0
+offset_right = 47.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_u0p37")
+texture_pressed = ExtResource("3_x05d4")
+texture_hover = ExtResource("4_q8vwi")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_n27rq")
+theme_override_font_sizes/font_size = 50
+text = "High Socre: 0"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
