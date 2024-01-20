@@ -17,7 +17,7 @@ func _physics_process(delta):
 	velocity += transform.basis.x * $cartoon_plane.rotation.z / deg_to_rad(45) * forward_speed / 2.0
 	move_and_slide()
 
-func get_input(delta):
+func get_input(_delta):
 	pitch_input = Input.get_axis("pitch_down","pitch_up")
 	roll_input = Input.get_axis("roll_left","roll_right")
 	if position.y >= max_altitude and pitch_input > 0:
