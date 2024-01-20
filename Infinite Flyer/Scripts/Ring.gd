@@ -23,6 +23,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	$CollisionShape3D/MeshInstance3D.hide()
+	$AudioStreamPlayer.play()
 	var d = global_position.distance_to(body.global_position)
 	if d < 2.0:
 		$Label3D.text  = "200"

@@ -4,8 +4,9 @@ signal dead
 signal fuel_changed
 signal score_changed
 
-@export var fuel_burn = 1.0
+var title_screen = "res://Scenes/title_screen.tscn"
 
+@export var fuel_burn = 1.0
 @export var pitch_speed = 1.1
 @export var roll_speed = 2.5
 @export var level_speed = 4.0
@@ -44,10 +45,11 @@ func die():
 	$cartoon_plane.hide()
 	explosion.show()
 	explosion.play("default")
+	$AudioStreamPlayer.play()
 	await(explosion.animation_finished)
 	explosion.hide()
 	dead.emit()
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file(title_screen)
 
 func set_fuel(value):
 	fuel = min(value,max_fuel)
