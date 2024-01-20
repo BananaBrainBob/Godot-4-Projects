@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
 signal dead
+signal fuel_changed
+signal score_changed
+
+@export var fuel_burn = 1.0
 
 @export var pitch_speed = 1.1
 @export var roll_speed = 2.5
@@ -10,6 +14,11 @@ signal dead
 var pitch_input
 var roll_input
 var max_altitude = 20 
+var max_fuel = 10.0
+var fuel = 10.0:
+	set = set_fuel
+var score = 0:
+	set = set_score
 
 func _physics_process(delta):
 	get_input(delta)
@@ -18,6 +27,7 @@ func _physics_process(delta):
 	$cartoon_plane.rotation.z = lerpf($cartoon_plane.rotation.z,roll_input,roll_speed*delta)
 	velocity = -transform.basis.z * forward_speed
 	velocity += transform.basis.x * $cartoon_plane.rotation.z / deg_to_rad(45) * forward_speed / 2.0
+	fuel -= fuel_burn * delta
 	move_and_slide()
 	if get_slide_collision_count() > 1:
 		die()
@@ -38,3 +48,13 @@ func die():
 	explosion.hide()
 	dead.emit()
 	get_tree().reload_current_scene()
+
+func set_fuel(value):
+	fuel = min(value,max_fuel)
+	fuel_changed.emit(fuel)
+	if fuel <= 0:
+		die()
+
+func set_score(value):
+	score = value
+	score_changed.emit(score)
