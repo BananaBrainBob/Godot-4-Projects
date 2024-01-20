@@ -41,6 +41,9 @@ func get_input(_delta):
 		pitch_input = 0
 
 func die():
+	if score > Global.highscore:
+		Global.highscore = score
+		Global.save_score()
 	set_physics_process(false)
 	$cartoon_plane.hide()
 	explosion.show()
