@@ -3,10 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_txj1w"]
 [ext_resource type="Texture2D" uid="uid://becbsrnl2tu4i" path="res://assets/player_sheet.png" id="2_fx0bm"]
 
-[sub_resource type="Animation" id="Animation_jvoxa"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_kr3t3"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,27 +12,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7, 8, 9, 10]
-}
-
-[sub_resource type="Animation" id="Animation_gr73s"]
-resource_name = "run"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(13, 0), Vector2i(14, 0), Vector2i(15, 0), Vector2i(16, 0), Vector2i(17, 0), Vector2i(18, 0)]
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_f7c2v"]
@@ -54,9 +35,10 @@ tracks/0/keys = {
 "values": [5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_mh63f"]
-resource_name = "jump_up"
-length = 0.1
+[sub_resource type="Animation" id="Animation_jvoxa"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,10 +46,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [11]
+"values": [7, 8, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_3plgy"]
@@ -86,8 +68,9 @@ tracks/0/keys = {
 "values": [12]
 }
 
-[sub_resource type="Animation" id="Animation_kr3t3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_mh63f"]
+resource_name = "jump_up"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -98,19 +81,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5]
+"values": [11]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame_coords")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_gr73s"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(12, 0)]
+"values": [Vector2i(13, 0), Vector2i(14, 0), Vector2i(15, 0), Vector2i(16, 0), Vector2i(17, 0), Vector2i(18, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p6bxd"]
@@ -136,7 +124,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("2_fx0bm")
 offset = Vector2(0, -16)
 hframes = 19
-frame = 12
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
